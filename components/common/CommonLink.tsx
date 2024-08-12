@@ -1,7 +1,7 @@
-import React from 'react';
-import { Text, StyleSheet, TextStyle } from 'react-native';
-import { COLORS } from '@/constants/Colors'; // Adjust import path as needed
-import { SIZES, WEIGHTS } from '@/constants/Font'; // Adjust import path as needed
+import React from "react";
+import { Text, StyleSheet, TextStyle } from "react-native";
+import { COLORS } from "@/constants/Colors"; // Adjust import path as needed
+import { SIZES, WEIGHTS } from "@/constants/Font"; // Adjust import path as needed
 
 type CommonLinkProps = {
   text: string;
@@ -10,7 +10,12 @@ type CommonLinkProps = {
   style?: TextStyle; // Optional style override
 };
 
-const CommonLink = ({ text, onPress, color = COLORS.semantic.blue, style }: CommonLinkProps) => {
+const CommonLink = ({
+  text,
+  onPress,
+  color = COLORS.semantic.blue,
+  style,
+}: CommonLinkProps) => {
   return (
     <Text style={[styles.link, { color }, style]} onPress={onPress}>
       {text}
@@ -20,7 +25,7 @@ const CommonLink = ({ text, onPress, color = COLORS.semantic.blue, style }: Comm
 
 const styles = StyleSheet.create({
   link: {
-    textAlign: 'center',
+    textAlign: "center",
     fontSize: SIZES.SIZE_14,
     fontWeight: WEIGHTS.REGULAR,
   },

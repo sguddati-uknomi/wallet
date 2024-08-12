@@ -1,8 +1,14 @@
-import React from 'react';
-import { View, Text, TouchableOpacity, StyleSheet, ViewStyle } from 'react-native';
-import { COLORS } from '@/constants/Colors'; // Adjust import path as needed
-import { SIZES, WEIGHTS } from '@/constants/Font'; // Adjust import path as needed
-import CommonLink from './CommonLink'; // Adjust import path as needed
+import React from "react";
+import {
+  View,
+  Text,
+  TouchableOpacity,
+  StyleSheet,
+  ViewStyle,
+} from "react-native";
+import { COLORS } from "@/constants/Colors"; // Adjust import path as needed
+import { SIZES, WEIGHTS } from "@/constants/Font"; // Adjust import path as needed
+import CommonLink from "./CommonLink"; // Adjust import path as needed
 
 type CustomButtonWithLinksProps = {
   text: string;
@@ -23,12 +29,13 @@ const CustomButtonWithLinks = ({
 }: CustomButtonWithLinksProps) => {
   return (
     <View style={[styles.container, style]}>
-      <TouchableOpacity style={[styles.button, { backgroundColor: buttonColor }]} onPress={onPress}>
+      <TouchableOpacity
+        style={[styles.button, { backgroundColor: buttonColor }]}
+        onPress={onPress}
+      >
         <Text style={[styles.buttonText, { color: textColor }]}>{text}</Text>
       </TouchableOpacity>
-      {children && <View style={styles.childrenContainer}>
-        {children}
-      </View>}
+      {children && <View style={styles.childrenContainer}>{children}</View>}
     </View>
   );
 };
@@ -36,16 +43,16 @@ const CustomButtonWithLinks = ({
 const styles = StyleSheet.create({
   container: {
     gap: 24,
-    width: '100%',
+    width: "100%",
   },
   button: {
-    width: '100%',
+    width: "100%",
     height: 44,
     borderRadius: 60,
     paddingVertical: 7,
     paddingHorizontal: 46,
-    justifyContent: 'center',
-    alignItems: 'center',
+    justifyContent: "center",
+    alignItems: "center",
   },
   buttonText: {
     fontSize: SIZES.SIZE_17,
@@ -56,7 +63,7 @@ const styles = StyleSheet.create({
   },
   childrenContainer: {
     gap: 16,
-  }
+  },
 });
 
 export default CustomButtonWithLinks;

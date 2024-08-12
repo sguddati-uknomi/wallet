@@ -1,7 +1,7 @@
-import React from 'react';
-import { StatusBar, StyleSheet, View, ViewStyle } from 'react-native';
-import { SafeAreaView } from 'react-native-safe-area-context';
-import { COLORS } from '@/constants/Colors'; // Adjust import path as needed
+import React from "react";
+import { StatusBar, StyleSheet, View, ViewStyle } from "react-native";
+import { SafeAreaView } from "react-native-safe-area-context";
+import { COLORS } from "@/constants/Colors"; // Adjust import path as needed
 
 type CommonAppLayoutProps = {
   children: React.ReactNode;
@@ -9,7 +9,11 @@ type CommonAppLayoutProps = {
   style?: ViewStyle; // Optional style for SafeAreaView
 };
 
-const CommonAppLayout = ({ children, backgroundColor = COLORS.gray.white, style }: CommonAppLayoutProps) => {
+const CommonAppLayout = ({
+  children,
+  backgroundColor = COLORS.gray.white,
+  style,
+}: CommonAppLayoutProps) => {
   return (
     <SafeAreaView style={[styles.container, { backgroundColor }, style]}>
       <StatusBar barStyle="dark-content" />

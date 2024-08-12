@@ -26,10 +26,7 @@ const OnboardingStep = ({
         />
         <ProgressIndicator stepsCompleted={stepsCompleted} />
       </View>
-      <PageTitleSection
-        title={title}
-        description={description}
-      />
+      <PageTitleSection title={title} description={description} />
     </View>
   );
 };

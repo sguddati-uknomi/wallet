@@ -18,32 +18,35 @@ import { HeaderLeftIcon } from "@/components/header/HeaderLeftIcon";
 import { ROUTES } from "@/constants/Routes";
 
 export default function HomeScreen() {
-    const router = useRouter();
-    return (
-        <CommonAppLayout>
-            <Header leftComponent={<HeaderLeftIcon onPress={() => router.dismiss()} />} middleComponent={<Logo />} />
-            <View
-                style={{
-                    flex: 1,
-                    justifyContent: "space-evenly",
-                    alignItems: "center",
-                }}
-            >
-                <OnboardingStep
-                    title="Get your order with a side of delight"
-                    description="uKnomi gives you money back every time you make a purchase"
-                    stepsCompleted={3}
-                />
-                <CommonButtonWithLinks
-                    text="Next"
-                    onPress={() => router.push(ROUTES.AUTH_SIGN_IN)}
-                >
-                    <CommonLink
-                        text="Skip and get started"
-                        onPress={() => router.push(ROUTES.AUTH_SIGN_IN)}
-                    />
-                </CommonButtonWithLinks>
-            </View>
-        </CommonAppLayout>
-    );
+  const router = useRouter();
+  return (
+    <CommonAppLayout>
+      <Header
+        leftComponent={<HeaderLeftIcon onPress={() => router.dismiss()} />}
+        middleComponent={<Logo />}
+      />
+      <View
+        style={{
+          flex: 1,
+          justifyContent: "space-evenly",
+          alignItems: "center",
+        }}
+      >
+        <OnboardingStep
+          title="Get your order with a side of delight"
+          description="uKnomi gives you money back every time you make a purchase"
+          stepsCompleted={3}
+        />
+        <CommonButtonWithLinks
+          text="Next"
+          onPress={() => router.push(ROUTES.AUTH_SIGN_IN)}
+        >
+          <CommonLink
+            text="Skip and get started"
+            onPress={() => router.push(ROUTES.AUTH_SIGN_IN)}
+          />
+        </CommonButtonWithLinks>
+      </View>
+    </CommonAppLayout>
+  );
 }

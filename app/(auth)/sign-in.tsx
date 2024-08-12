@@ -17,40 +17,48 @@ import { ROUTES } from "@/constants/Routes";
 import PageTitleSection from "@/components/common/CommonPageTitleSection";
 
 export default function SignIn() {
-    const router = useRouter();
-    return (
-        <CommonAppLayout>
-            <Header leftComponent={<HeaderLeftIcon onPress={() => router.dismiss()} />} middleComponent={<Logo />} />
-            <View
-                style={{
-                    flex: 1,
-                    justifyContent: "space-evenly",
-                    alignItems: "center",
-                }}
-            >
-                <PageTitleSection title="Welcome to Your uKnomi Wallet" titleStyle={{
-                    fontSize: SIZES.SIZE_32,
-                }} description="Sign in to manage your cards" />
-                <CommonButtonWithLinks
-                    text="Sign In"
-                    onPress={() => router.push(ROUTES.AUTH_SIGN_IN)}
-                >
-                    <CommonLink
-                        text="Sign in with Face ID"
-                        onPress={() => router.push(ROUTES.AUTH_SIGN_IN)}
-                    />
-                    <Text style={{ textAlign: "center" }}>
-                        Not Registered?  <CommonLink
-                            text="Sign up"
-                            onPress={() => router.push(ROUTES.AUTH_SIGN_UP)}
-                        />
-                    </Text>
-                    <CommonLink
-                        text="Continue without Signing Up"
-                        onPress={() => router.push(ROUTES.AUTH_SIGN_IN)}
-                    />
-                </CommonButtonWithLinks>
-            </View>
-        </CommonAppLayout>
-    );
+  const router = useRouter();
+  return (
+    <CommonAppLayout>
+      <Header
+        leftComponent={<HeaderLeftIcon onPress={() => router.dismiss()} />}
+        middleComponent={<Logo />}
+      />
+      <View
+        style={{
+          flex: 1,
+          justifyContent: "space-evenly",
+          alignItems: "center",
+        }}
+      >
+        <PageTitleSection
+          title="Welcome to Your uKnomi Wallet"
+          titleStyle={{
+            fontSize: SIZES.SIZE_32,
+          }}
+          description="Sign in to manage your cards"
+        />
+        <CommonButtonWithLinks
+          text="Sign In"
+          onPress={() => router.push(ROUTES.AUTH_SIGN_IN)}
+        >
+          <CommonLink
+            text="Sign in with Face ID"
+            onPress={() => router.push(ROUTES.AUTH_SIGN_IN)}
+          />
+          <Text style={{ textAlign: "center" }}>
+            Not Registered?{" "}
+            <CommonLink
+              text="Sign up"
+              onPress={() => router.push(ROUTES.AUTH_SIGN_UP)}
+            />
+          </Text>
+          <CommonLink
+            text="Continue without Signing Up"
+            onPress={() => router.push(ROUTES.AUTH_SIGN_IN)}
+          />
+        </CommonButtonWithLinks>
+      </View>
+    </CommonAppLayout>
+  );
 }

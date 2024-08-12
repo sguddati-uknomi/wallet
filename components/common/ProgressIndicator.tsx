@@ -1,12 +1,15 @@
-import React from 'react';
-import { View, StyleSheet } from 'react-native';
+import React from "react";
+import { View, StyleSheet } from "react-native";
 
 type ProgressIndicatorProps = {
   stepsCompleted: number; // Number of steps completed (e.g., 1, 2, or 3)
   totalSteps?: number; // Total number of steps (e.g., 3, 4, etc.)
 };
 
-const ProgressIndicator = ({ stepsCompleted, totalSteps = 3 }: ProgressIndicatorProps) => {
+const ProgressIndicator = ({
+  stepsCompleted,
+  totalSteps = 3,
+}: ProgressIndicatorProps) => {
   return (
     <View style={styles.container}>
       {Array.from({ length: totalSteps }).map((_, index) => (
@@ -24,9 +27,9 @@ const ProgressIndicator = ({ stepsCompleted, totalSteps = 3 }: ProgressIndicator
 
 const styles = StyleSheet.create({
   container: {
-    flexDirection: 'row',
-    justifyContent: 'center',
-    alignItems: 'center',
+    flexDirection: "row",
+    justifyContent: "center",
+    alignItems: "center",
     marginTop: 20, // Adjust as needed
   },
   circle: {
@@ -36,10 +39,10 @@ const styles = StyleSheet.create({
     marginHorizontal: 5,
   },
   completed: {
-    backgroundColor: 'black', // Color for completed steps
+    backgroundColor: "black", // Color for completed steps
   },
   incomplete: {
-    backgroundColor: 'lightgray', // Color for incomplete steps
+    backgroundColor: "lightgray", // Color for incomplete steps
   },
 });
 

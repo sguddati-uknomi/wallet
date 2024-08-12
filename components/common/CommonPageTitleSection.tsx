@@ -1,6 +1,13 @@
-import React from 'react';
-import { View, Text, StyleSheet, StyleProp, TextStyle, ViewStyle } from 'react-native';
-import { SIZES, WEIGHTS } from '@/constants/Font'; // Adjust import path as needed
+import React from "react";
+import {
+  View,
+  Text,
+  StyleSheet,
+  StyleProp,
+  TextStyle,
+  ViewStyle,
+} from "react-native";
+import { SIZES, WEIGHTS } from "@/constants/Font"; // Adjust import path as needed
 
 type PageTitleSectionProps = {
   title: string;
@@ -27,23 +34,23 @@ const PageTitleSection = ({
 
 const styles = {
   container: {
-    alignItems: 'center',
-    width: '100%',
+    alignItems: "center",
+    width: "100%",
   },
   title: {
     fontSize: SIZES.SIZE_28,
     fontWeight: WEIGHTS.BOLD,
-    textAlign: 'center',
+    textAlign: "center",
     marginBottom: 8,
     maxWidth: 256,
-    fontColor: "#000000"
+    fontColor: "#000000",
   },
   description: {
     fontSize: SIZES.SIZE_17,
     fontWeight: WEIGHTS.REGULAR,
-    textAlign: 'center',
+    textAlign: "center",
     maxWidth: 246,
-    fontColor: "#000000"
+    fontColor: "#000000",
   },
 } as StyleProp<any>;
 

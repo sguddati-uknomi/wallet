@@ -21,7 +21,10 @@ export default function HomeScreen() {
   const router = useRouter();
   return (
     <CommonAppLayout>
-      <Header leftComponent={<HeaderLeftIcon onPress={() => router.dismiss()} />} middleComponent={<Logo />} />
+      <Header
+        leftComponent={<HeaderLeftIcon onPress={() => router.dismiss()} />}
+        middleComponent={<Logo />}
+      />
       <View
         style={{
           flex: 1,

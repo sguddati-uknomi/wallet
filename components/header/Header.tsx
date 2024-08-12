@@ -1,6 +1,6 @@
-import React from 'react';
-import { View } from 'react-native';
-import { styles } from './Header.styles';
+import React from "react";
+import { View } from "react-native";
+import { styles } from "./Header.styles";
 
 type HeaderProps = {
   leftComponent?: React.ReactNode;

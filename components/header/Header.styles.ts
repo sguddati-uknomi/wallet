@@ -1,10 +1,10 @@
-import { StyleSheet } from 'react-native';
+import { StyleSheet } from "react-native";
 
 export const styles = StyleSheet.create({
   container: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    width: '100%',
+    flexDirection: "row",
+    justifyContent: "space-between",
+    width: "100%",
     minHeight: 52,
     paddingTop: 8,
     paddingBottom: 8,
@@ -12,9 +12,9 @@ export const styles = StyleSheet.create({
     paddingRight: 2,
   },
   sideContainer: {
-    alignItems: 'flex-start',
+    alignItems: "flex-start",
   },
   middleContainer: {
-    alignItems: 'center',
+    alignItems: "center",
   },
 });
