@@ -24,3 +24,44 @@ export const Colors = {
     tabIconSelected: tintColorDark,
   },
 };
+
+
+export const COLORS = {
+  primary: {
+    uKnomiLogoGreen: "#00DF7E",
+    uKnomiLogoGrey: "#333333",
+  },
+  secondary: {
+    midGreen: "#5DC587",
+    lightGreen: "#E6FCF3",
+    burntRed: "#C84F2F",
+    lightRed: "#FAEDEA",
+  },
+  gray: {
+    black: "#000000",
+    white: "#FFFFFF",
+    midGray: "#C4C4C4",
+    lightGray: "#EAEAEA",
+    lightGrayBackground: "#F8F8F8",
+  },
+  darkMode: {
+    background: "#181822",
+    mid: "#272735",
+    darkGreen: "#134034",
+    redError: "#F38989",
+    redErrorTextFields: "#311B1B",
+  },
+  semantic: {
+    yellow: "#FFC90A",
+    blue: "#00A2CC",
+    red: "#FD4141",
+    green: "#68BA2E",
+  },
+  loyalty: {
+    bronze: "#A87C0C",
+    gold: "#BEAB00",
+    platinum: "#D5E4E5",
+    silver: "#9A9A9A",
+    noTier: "#616170",
+  }
+}
