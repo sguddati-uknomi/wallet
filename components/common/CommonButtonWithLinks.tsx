@@ -8,7 +8,6 @@ import {
 } from "react-native";
 import { COLORS } from "@/constants/Colors"; // Adjust import path as needed
 import { SIZES, WEIGHTS } from "@/constants/Font"; // Adjust import path as needed
-import CommonLink from "./CommonLink"; // Adjust import path as needed
 
 type CustomButtonWithLinksProps = {
   text: string;

@@ -1,12 +1,5 @@
 import React from "react";
-import {
-  View,
-  Text,
-  StyleSheet,
-  StyleProp,
-  TextStyle,
-  ViewStyle,
-} from "react-native";
+import { View, Text, StyleProp, TextStyle, ViewStyle } from "react-native";
 import { SIZES, WEIGHTS } from "@/constants/Font"; // Adjust import path as needed
 
 type PageTitleSectionProps = {

@@ -152,7 +152,7 @@ const styles: StyleProp<any> = {
     width: 20,
     height: 20,
     marginLeft: 10,
-    marginRight: 15,
+    marginRight: 8,
   },
 };
 
