@@ -1,5 +1,13 @@
 import React from "react";
-import { Text, Button, Image, View } from "react-native";
+import {
+  Text,
+  Button,
+  Image,
+  View,
+  TextInputProps,
+  TextInput,
+  StyleProp,
+} from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { Link, useRouter } from "expo-router";
 import { Header } from "@/components/header/Header";
@@ -17,19 +25,20 @@ import { ROUTES } from "@/constants/Routes";
 import PageTitleSection from "@/components/common/CommonPageTitleSection";
 import ProgressIndicator from "@/components/common/ProgressIndicator";
 import CustomInput from "@/components/common/CommonInput";
+import Checkbox from "expo-checkbox";
 
-export default function VerifyEmail() {
+export default function ForgotPassword() {
   const router = useRouter();
-  const [verficationCode, setVerificationCode] = React.useState("");
+  const [email, setEmail] = React.useState("");
+  const [password, setPassword] = React.useState("");
+  const [isChecked, setChecked] = React.useState(false);
+
   return (
-    <CommonAppLayout
-      header={
-        <Header
-          leftComponent={<HeaderLeftIcon onPress={() => router.dismiss()} />}
-          middleComponent={<Logo />}
-        />
-      }
-    >
+    <CommonAppLayout>
+      <Header
+        leftComponent={<HeaderLeftIcon onPress={() => router.dismiss()} />}
+        middleComponent={<Logo />}
+      />
       <View
         style={{
           flex: 1,
@@ -38,34 +47,20 @@ export default function VerifyEmail() {
           alignItems: "center",
         }}
       >
-        <View>
-          <PageTitleSection
-            title="Verify Email"
-            titleStyle={{
-              fontSize: SIZES.SIZE_32,
-            }}
-            description="A verification code was sent to j****@gmail.com"
-          />
-          <ProgressIndicator stepsCompleted={2} totalSteps={6} />
-        </View>
-        <CustomInput
-          value={verficationCode}
-          onChangeText={setVerificationCode}
-          placeholder=""
-          inputTextColor={COLORS.gray.black}
-          isMinimalistic={true}
-          label="Verification Code" // This will be displayed above the input field
-          inputBackgroundColor="white"
+        <PageTitleSection
+          title="Reset Password"
+          description="Enter your email or mobile number to reset your password"
+          titleStyle={{
+            fontSize: SIZES.SIZE_32,
+          }}
         />
-        <CommonButtonWithLinks
-          text="Next"
-          onPress={() => router.push(ROUTES.AUTH_CREATE_PASSWORD)}
-        >
-          <Text style={{ textAlign: "center" }}>
-            Didn't receive the code?{" "}
-            <CommonLink text="Resend code" onPress={() => {}} />
-          </Text>
-        </CommonButtonWithLinks>
+        <CustomInput
+          value={email}
+          onChangeText={setEmail}
+          placeholder="Email or mobile number"
+          icon={IMAGES.icons.lightProfile}
+        />
+        <CommonButtonWithLinks text="Submit" onPress={() => router.dismiss()} />
       </View>
     </CommonAppLayout>
   );

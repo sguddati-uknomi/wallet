@@ -8,13 +8,16 @@ export const styles = StyleSheet.create({
     minHeight: 52,
     paddingTop: 8,
     paddingBottom: 8,
-    paddingLeft: 2,
-    paddingRight: 2,
+    paddingHorizontal: 26,
   },
   sideContainer: {
     alignItems: "flex-start",
   },
   middleContainer: {
     alignItems: "center",
+  },
+  rightContainer: {
+    alignItems: "flex-end",
+    justifyContent: "center",
   },
 });

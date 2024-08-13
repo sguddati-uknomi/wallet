@@ -20,11 +20,14 @@ import { ROUTES } from "@/constants/Routes";
 export default function HomeScreen() {
   const router = useRouter();
   return (
-    <CommonAppLayout>
-      <Header
-        leftComponent={<HeaderLeftIcon onPress={() => router.dismiss()} />}
-        middleComponent={<Logo />}
-      />
+    <CommonAppLayout
+      header={
+        <Header
+          leftComponent={<HeaderLeftIcon onPress={() => router.dismiss()} />}
+          middleComponent={<Logo />}
+        />
+      }
+    >
       <View
         style={{
           flex: 1,
@@ -39,11 +42,11 @@ export default function HomeScreen() {
         />
         <CommonButtonWithLinks
           text="Next"
-          onPress={() => router.push(ROUTES.AUTH_SIGN_IN)}
+          onPress={() => router.push(ROUTES.AUTH_SIGN_UP)}
         >
           <CommonLink
             text="Skip and get started"
-            onPress={() => router.push(ROUTES.AUTH_SIGN_IN)}
+            onPress={() => router.push(ROUTES.AUTH_SIGN_UP)}
           />
         </CommonButtonWithLinks>
       </View>

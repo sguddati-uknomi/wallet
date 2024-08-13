@@ -42,6 +42,7 @@ export const COLORS = {
     midGray: "#C4C4C4",
     lightGray: "#EAEAEA",
     lightGrayBackground: "#F8F8F8",
+    faintGrey: "#AEAEAE",
   },
   darkMode: {
     background: "#181822",

@@ -42,14 +42,14 @@ const styles = {
     fontWeight: WEIGHTS.BOLD,
     textAlign: "center",
     marginBottom: 8,
-    maxWidth: 256,
+    maxWidth: 276,
     fontColor: "#000000",
   },
   description: {
     fontSize: SIZES.SIZE_17,
     fontWeight: WEIGHTS.REGULAR,
     textAlign: "center",
-    maxWidth: 246,
+    maxWidth: 256,
     fontColor: "#000000",
   },
 } as StyleProp<any>;

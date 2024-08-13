@@ -1,5 +1,13 @@
 import React from "react";
-import { Text, Button, Image, View } from "react-native";
+import {
+  Text,
+  Button,
+  Image,
+  View,
+  TextInputProps,
+  TextInput,
+  StyleProp,
+} from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { Link, useRouter } from "expo-router";
 import { Header } from "@/components/header/Header";
@@ -16,19 +24,29 @@ import { HeaderLeftIcon } from "@/components/header/HeaderLeftIcon";
 import { ROUTES } from "@/constants/Routes";
 import PageTitleSection from "@/components/common/CommonPageTitleSection";
 import ProgressIndicator from "@/components/common/ProgressIndicator";
+import CustomInput from "@/components/common/CommonInput";
+import Checkbox from "expo-checkbox";
 
-export default function SignIn() {
+export default function Email() {
   const router = useRouter();
+  const [email, setEmail] = React.useState("");
+  const [password, setPassword] = React.useState("");
+  const [isChecked, setChecked] = React.useState(false);
+
   return (
-    <CommonAppLayout>
-      <Header
-        leftComponent={<HeaderLeftIcon onPress={() => router.dismiss()} />}
-        middleComponent={<Logo />}
-      />
+    <CommonAppLayout
+      header={
+        <Header
+          leftComponent={<HeaderLeftIcon onPress={() => router.dismiss()} />}
+          middleComponent={<Logo />}
+        />
+      }
+    >
       <View
         style={{
           flex: 1,
-          justifyContent: "space-evenly",
+          gap: 48,
+          paddingVertical: 64,
           alignItems: "center",
         }}
       >
@@ -38,7 +56,6 @@ export default function SignIn() {
             description="A great journey starts with a single step. Let’s get to know you better."
             titleStyle={{
               fontSize: SIZES.SIZE_32,
-              maxWidth: 270,
             }}
             descriptionStyle={{
               maxWidth: 270,
@@ -46,19 +63,27 @@ export default function SignIn() {
           />
           <ProgressIndicator stepsCompleted={1} totalSteps={6} />
         </View>
+        <CustomInput
+          value={email}
+          onChangeText={setEmail}
+          placeholder=""
+          inputTextColor={COLORS.gray.black}
+          isMinimalistic={true}
+          label="Enter email or Mobile Number" // This will be displayed above the input field
+          inputBackgroundColor="white"
+        />
         <CommonButtonWithLinks
-          text="Sign In"
-          onPress={() => router.push(ROUTES.AUTH_SIGN_IN)}
+          text="Next"
+          onPress={() => router.push(ROUTES.AUTH_SIGN_UP_VERIFY_EMAIL)}
         >
-          <CommonLink
-            text="Sign in with Face ID"
-            onPress={() => router.push(ROUTES.AUTH_SIGN_IN)}
-          />
           <Text style={{ textAlign: "center" }}>
-            Not Registered?{" "}
+            Already a user?{" "}
             <CommonLink
-              text="Sign up"
-              onPress={() => router.push(ROUTES.AUTH_SIGN_UP)}
+              text="Sign in"
+              onPress={() => {
+                router.dismiss(1);
+                router.push(ROUTES.AUTH_SIGN_IN);
+              }}
             />
           </Text>
           <CommonLink

@@ -40,5 +40,9 @@ export const IMAGES = {
     lightDeleteAccount: require("./images/icons/light_delete_account.png"),
     lightError: require("./images/icons/light_error.png"),
     leftArrow: require("./images/icons/left_arrow.png"),
+    lightVisible: require("./images/icons/light_visible.png"),
+    lightInvisible: require("./images/icons/light_invisible.png"),
+    darkProfile: require("./images/icons/dark_profile.png"),
+    lightInfo: require("./images/icons/light_info.png"),
   },
 };

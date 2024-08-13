@@ -62,5 +62,5 @@ export const ROUTES = {
   AUTH_CREATE_PASSWORD: "/create-password",
   AUTH_ENABLE_LOCATION: "/enable-location",
   AUTH_ENABLE_BLUETOOTH: "/enable-bluetooth",
-  AUTH_ENABLE_NOTIFICATIONS: "/allow-notifications",
+  AUTH_ENABLE_NOTIFICATIONS: "/enable-notifications",
 };
