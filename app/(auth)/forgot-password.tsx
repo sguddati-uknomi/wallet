@@ -16,11 +16,14 @@ export default function ForgotPassword() {
   const [email, setEmail] = React.useState("");
 
   return (
-    <CommonAppLayout>
-      <Header
-        leftComponent={<HeaderLeftIcon onPress={() => router.dismiss()} />}
-        middleComponent={<Logo />}
-      />
+    <CommonAppLayout
+      header={
+        <Header
+          leftComponent={<HeaderLeftIcon onPress={() => router.dismiss()} />}
+          middleComponent={<Logo />}
+        />
+      }
+    >
       <View
         style={{
           flex: 1,

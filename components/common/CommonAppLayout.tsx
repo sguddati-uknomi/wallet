@@ -15,6 +15,7 @@ type CommonAppLayoutProps = {
   style?: ViewStyle; // Optional style for SafeAreaView
   header?: React.ReactNode;
   scrollable?: boolean;
+  mainContentStyle?: ViewStyle;
 };
 
 const CommonAppLayout = ({
@@ -23,20 +24,21 @@ const CommonAppLayout = ({
   style,
   header,
   scrollable,
+  mainContentStyle,
 }: CommonAppLayoutProps) => {
   return (
     <SafeAreaView style={[styles.container, { backgroundColor }, style]}>
       <StatusBar barStyle="dark-content" />
       {header}
       {!scrollable ? (
-        <View style={styles.mainContent}>{children}</View>
+        <View style={[styles.mainContent, mainContentStyle]}>{children}</View>
       ) : (
         <ScrollView
           showsVerticalScrollIndicator={false}
           showsHorizontalScrollIndicator={false}
-          style={styles.mainContent}
+          style={[styles.mainContent, mainContentStyle]}
         >
-          <View style={{ paddingBottom: 56 }}>{children}</View>
+          <View style={{ paddingBottom: 24 }}>{children}</View>
         </ScrollView>
       )}
     </SafeAreaView>
@@ -49,7 +51,7 @@ const styles = StyleSheet.create({
   },
   mainContent: {
     flex: 1,
-    padding: 24,
+    paddingHorizontal: 24,
   },
 });
 

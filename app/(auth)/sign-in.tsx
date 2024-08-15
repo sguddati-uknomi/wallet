@@ -100,7 +100,10 @@ export default function SignIn() {
         </View>
         <CommonButtonWithLinks
           text="Sign In"
-          onPress={() => router.push(ROUTES.WALLET)}
+          onPress={() => {
+            router.dismissAll();
+            router.replace(ROUTES.WALLET);
+          }}
         >
           <CommonLink text="Sign in with Face ID" onPress={() => {}} />
           <Text style={{ textAlign: "center" }}>

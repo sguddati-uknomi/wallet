@@ -44,5 +44,18 @@ export const IMAGES = {
     lightInvisible: require("./images/icons/light_invisible.png"),
     darkProfile: require("./images/icons/dark_profile.png"),
     lightInfo: require("./images/icons/light_info.png"),
+    darkPlus: require("./images/icons/dark_plus.png"),
+    darkBurger: require("./images/icons/dark_burger.png"),
+    filledStar: require("./images/icons/filled_star.png"),
+    unfilledStar: require("./images/icons/unfilled_star.png"),
+    lightPlus: require("./images/icons/light_plus.png"),
+    darkClose: require("./images/icons/dark_close.png"),
+  },
+  demos: {
+    lexis: require("./images/demo/lexis.png"),
+    eegees: require("./images/demo/eegees.png"),
+    pizzaHut: require("./images/demo/pizza_hut.png"),
+    dunkinDonuts: require("./images/demo/dunkin_donuts.png"),
+    tacoBell: require("./images/demo/taco_bell.png"),
   },
 };
