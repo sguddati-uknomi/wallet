@@ -134,6 +134,7 @@ const styles: StyleProp<any> = {
     alignItems: "center",
     borderRadius: 60,
     backgroundColor: COLORS.darkMode.darkGreen,
+    width: "100%",
   },
   icon: {
     width: 20,
@@ -147,6 +148,7 @@ const styles: StyleProp<any> = {
     fontSize: SIZES.SIZE_17,
     justifyContent: "center",
     alignItems: "center",
+    width: "98%",
   },
   toggleIcon: {
     width: 20,

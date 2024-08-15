@@ -34,7 +34,7 @@ export const IMAGES = {
     lightRemovePaymentMethod: require("./images/icons/light_remove_payment_method.png"),
     lightCheck: require("./images/icons/light_check.png"),
     lightSupport: require("./images/icons/light_support.png"),
-    lightTAndC: require("./images/icons/light_t&c.png"),
+    lightTAndC: require("./images/icons/light_tc.png"),
     lightCar: require("./images/icons/light_car.png"),
     lightLocation: require("./images/icons/light_location.png"),
     lightDeleteAccount: require("./images/icons/light_delete_account.png"),
@@ -50,6 +50,7 @@ export const IMAGES = {
     unfilledStar: require("./images/icons/unfilled_star.png"),
     lightPlus: require("./images/icons/light_plus.png"),
     darkClose: require("./images/icons/dark_close.png"),
+    rightArrow: require("./images/icons/right_arrow.png"),
   },
   demos: {
     lexis: require("./images/demo/lexis.png"),

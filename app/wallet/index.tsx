@@ -1,5 +1,5 @@
 import React from "react";
-import { Text, Image, View } from "react-native";
+import { Text, Image, View, TouchableOpacity } from "react-native";
 import { useRouter } from "expo-router";
 import { Header } from "@/components/header/Header";
 import { IMAGES } from "@/assets/Images"; // Ensure this import path is correct
@@ -89,16 +89,18 @@ export default function HomeScreen() {
             </Text>
           }
           rightComponent={
-            <Image
-              style={{
-                alignSelf: "flex-end",
-                justifyContent: "center",
-                height: 16,
-                width: 16,
-                resizeMode: "contain",
-              }}
-              source={IMAGES.icons.darkProfile}
-            />
+            <TouchableOpacity onPress={() => router.push(ROUTES.ACCOUNT)}>
+              <Image
+                style={{
+                  alignSelf: "flex-end",
+                  justifyContent: "center",
+                  height: 16,
+                  width: 16,
+                  resizeMode: "contain",
+                }}
+                source={IMAGES.icons.darkProfile}
+              />
+            </TouchableOpacity>
           }
         />
       }
