@@ -17,6 +17,7 @@ import { ROUTES } from "@/constants/Routes";
 import PageTitleSection from "@/components/common/CommonPageTitleSection";
 import ProgressIndicator from "@/components/common/ProgressIndicator";
 import CustomInput from "@/components/common/CommonInput";
+import IconText from "@/components/common/IconText";
 
 export default function CreatePassword() {
   const router = useRouter();
@@ -36,7 +37,7 @@ export default function CreatePassword() {
         style={{
           flex: 1,
           gap: 48,
-          paddingVertical: 64,
+          paddingVertical: 48,
           alignItems: "center",
         }}
       >
@@ -72,25 +73,56 @@ export default function CreatePassword() {
             isPassword
           />
         </View>
+        <View
+          style={{
+            width: "100%",
+            gap: 8,
+            marginTop: -16,
+          }}
+        >
+          <IconText
+            icon={IMAGES.icons.lightCheck}
+            text="Contains at least 8 characters"
+            iconSize={16}
+          />
+          <IconText
+            icon={IMAGES.icons.lightCheck}
+            text="Contains an upper case letter"
+            iconSize={16}
+            containerStyle={{ width: "100%" }}
+          />
+          <IconText
+            icon={IMAGES.icons.lightCheck}
+            text="Contains a lower case letter"
+            iconSize={16}
+            textStyle={{
+              color: COLORS.gray.faintGrey,
+            }}
+            containerStyle={{ width: "100%" }}
+          />
+          <IconText
+            icon={IMAGES.icons.lightCheck}
+            text="Contains a special character"
+            iconSize={16}
+            textStyle={{
+              color: COLORS.gray.faintGrey,
+            }}
+            containerStyle={{ width: "100%" }}
+          />
+          <IconText
+            icon={IMAGES.icons.lightCheck}
+            text="Contains a number"
+            iconSize={16}
+            textStyle={{
+              color: COLORS.gray.faintGrey,
+            }}
+            containerStyle={{ width: "100%" }}
+          />
+        </View>
         <CommonButtonWithLinks
           text="Next"
           onPress={() => router.push(ROUTES.AUTH_ENABLE_LOCATION)}
-        >
-          <Text style={{ textAlign: "center" }}>
-            Already a user?{" "}
-            <CommonLink
-              text="Sign in"
-              onPress={() => {
-                router.dismiss(1);
-                router.push(ROUTES.AUTH_SIGN_IN);
-              }}
-            />
-          </Text>
-          <CommonLink
-            text="Continue without Signing Up"
-            onPress={() => router.push(ROUTES.AUTH_SIGN_IN)}
-          />
-        </CommonButtonWithLinks>
+        />
       </View>
     </CommonAppLayout>
   );

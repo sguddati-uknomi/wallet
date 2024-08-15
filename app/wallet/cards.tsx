@@ -6,12 +6,10 @@ import { IMAGES } from "@/assets/Images"; // Ensure this import path is correct
 import { COLORS } from "@/constants/Colors";
 import { SIZES, WEIGHTS } from "@/constants/Font"; // Ensure this import path is correct
 import CommonAppLayout from "@/components/common/CommonAppLayout";
-import CommonLink from "@/components/common/CommonLink";
 import CommonButtonWithLinks from "@/components/common/CommonButtonWithLinks";
 import WalletCard from "@/components/common/WalletCard";
-import CompanyCard from "@/components/common/CompanyCard";
 import { ROUTES } from "@/constants/Routes";
-
+import CommonLink from "@/components/common/CommonLink";
 const CARD_MOCK_DATA = [
   {
     id: 1,
@@ -35,37 +33,7 @@ const CARD_MOCK_DATA = [
   },
 ];
 
-const MOCK_COMPANY_DATA = [
-  {
-    id: 1,
-    brandName: "Pizza Hut",
-    address: "216 Tokai Rd, Dreyersdal, Cape Town, 7945",
-    rating: 3,
-    reviewCount: 1250,
-    distance: 15,
-    logo: IMAGES.demos.pizzaHut, // Replace with the actual image reference
-  },
-  {
-    id: 2,
-    brandName: "Dunkin' Donuts",
-    address: "123 Main St, Springfield, USA",
-    rating: 4,
-    reviewCount: 980,
-    distance: 10,
-    logo: IMAGES.demos.dunkinDonuts, // Replace with the actual image reference
-  },
-  {
-    id: 3,
-    brandName: "Taco Bell",
-    address: "456 Elm St, Gotham, USA",
-    rating: 5,
-    reviewCount: 1500,
-    distance: 5,
-    logo: IMAGES.demos.tacoBell, // Replace with the actual image reference
-  },
-];
-
-export default function HomeScreen() {
+export default function AllCards() {
   const router = useRouter();
 
   return (
@@ -112,99 +80,70 @@ export default function HomeScreen() {
           alignItems: "center",
         }}
       >
-        {CARD_MOCK_DATA.map((card, idx) => {
-          return (
-            <View
-              key={idx}
-              style={{
-                marginBottom: idx === 0 ? -148 : 0,
-                width: 336,
-                height: 172,
-              }}
-            >
-              <WalletCard
-                brandTitle={card.brandTitle}
-                cardHolderName={card.cardHolderName}
-                cardExpirationDate={card.cardExpirationDate}
-                cardNumber={card.cardNumber}
-                backgroundColor={card.backgroundColor}
-                brandLogo={card.brandLogo}
-                showButtonIcon={idx === 0}
-              />
-            </View>
-          );
-        })}
-        <View
-          style={{
-            gap: SIZES.SIZE_12,
-            width: "100%",
-          }}
-        >
-          <CommonLink
-            text="See All"
-            onPress={() => {
-              router.push(ROUTES.WALLET_CARDS);
-            }}
-          />
-          <View
-            style={{
-              borderBottomWidth: 2,
-              borderBottomColor: COLORS.gray.lightGray,
-            }}
-          />
-        </View>
-      </View>
-      <View
-        style={{
-          marginTop: 28,
-          display: "flex",
-          flexDirection: "row",
-          justifyContent: "space-between",
-        }}
-      >
         <Text
           style={{
             fontSize: SIZES.SIZE_17,
-            fontWeight: WEIGHTS.REGULAR,
             color: COLORS.loyalty.silver,
+            width: "100%",
           }}
         >
-          Explore Cards Nearby
+          Your Rewards Cards
         </Text>
-        <Image
+        <View
           style={{
-            alignSelf: "flex-end",
-            justifyContent: "center",
-            height: 20,
-            width: 20,
-            resizeMode: "contain",
+            display: "flex",
+            flexDirection: "row",
+            flexWrap: "wrap",
+            justifyContent: "space-between",
+            width: 328,
+            flex: 4,
           }}
-          source={IMAGES.icons.lightInfo}
-        />
-      </View>
-      <View
-        style={{
-          marginTop: 24,
-          gap: 16,
-        }}
-      >
-        {MOCK_COMPANY_DATA.map((company, idx) => {
-          return (
-            <CompanyCard
-              key={idx}
-              id={`${company.id}`}
-              title={company.brandName}
-              address={company.address}
-              rating={company.rating}
-              distance={company.distance}
-              reviews={company.reviewCount}
-              logo={company.logo}
-              onCardAdd={() => {
-                alert("Card has been added");
-              }}
-            />
-          );
-        })}
+        >
+          {CARD_MOCK_DATA.map((card, idx) => {
+            return (
+              <>
+                <View
+                  key={idx}
+                  style={{
+                    minWidth: 150,
+                    maxWidth: 154,
+                    height: 116,
+                    flex: 1,
+                    marginTop: idx > 0 ? 28 : 0,
+                  }}
+                >
+                  <WalletCard
+                    brandTitle={card.brandTitle}
+                    cardHolderName={card.cardHolderName}
+                    cardExpirationDate={card.cardExpirationDate}
+                    cardNumber={card.cardNumber}
+                    backgroundColor={card.backgroundColor}
+                    brandLogo={card.brandLogo}
+                    buttonIcon={IMAGES.icons.lightVisible}
+                    logoOnly
+                  />
+                </View>
+                {idx === 0 && (
+                  <View
+                    key="default"
+                    style={{
+                      minWidth: 150,
+                      maxWidth: 154,
+                      height: 116,
+                      flex: 1,
+                    }}
+                  >
+                    <WalletCard
+                      backgroundColor={COLORS.gray.lightGrayBackground}
+                      buttonIcon={IMAGES.icons.darkPlus}
+                      logoOnly
+                    />
+                  </View>
+                )}
+              </>
+            );
+          })}
+        </View>
       </View>
       <View
         style={{
@@ -234,7 +173,15 @@ export default function HomeScreen() {
         }}
         text="Activate Profile"
         onPress={() => router.push(ROUTES.AUTH_SIGN_IN)}
-      />
+      >
+        <CommonLink
+          text="Not now, thanks"
+          style={{
+            color: COLORS.gray.midGray,
+          }}
+          onPress={() => router.push(ROUTES.AUTH_SIGN_IN)}
+        />
+      </CommonButtonWithLinks>
     </CommonAppLayout>
   );
 }

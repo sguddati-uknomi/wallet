@@ -105,7 +105,7 @@ const styles = {
     alignItems: "center",
   },
   roundImage: {
-    width: 18,
+    width: 20,
   },
   title: {
     fontSize: 16,

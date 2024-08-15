@@ -1,7 +1,7 @@
 import React from "react";
-import { TouchableOpacity, Text, Image } from "react-native";
-import { styles } from "./HeaderLeft.styles";
+import { TouchableOpacity, Text, Image, StyleProp } from "react-native";
 import { IMAGES } from "@/assets/Images"; // Ensure this import path is correct
+import { WEIGHTS, SIZES } from "@/constants/Font";
 
 type HeaderLeftIconProps = {
   text?: string;
@@ -16,3 +16,23 @@ export function HeaderLeftIcon({ text, onPress }: HeaderLeftIconProps) {
     </TouchableOpacity>
   );
 }
+
+const styles = {
+  container: {
+    position: "absolute",
+    top: 8,
+    left: 0,
+    flexDirection: "row",
+    alignItems: "center",
+    minWidth: 24,
+  },
+  icon: {
+    width: 16,
+    height: 16,
+    marginRight: 5,
+  },
+  text: {
+    fontSize: SIZES.SIZE_19,
+    fontWeight: WEIGHTS.BOLD,
+  },
+} as StyleProp<any>;

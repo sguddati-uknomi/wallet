@@ -1,6 +1,6 @@
 import React from "react";
 import { StyleProp, View } from "react-native";
-import { styles } from "./Header.styles";
+import { StyleSheet } from "react-native";
 
 type HeaderProps = {
   leftComponent?: React.ReactNode;
@@ -49,3 +49,25 @@ export function Header({
     </View>
   );
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    width: "100%",
+    minHeight: 52,
+    paddingTop: 8,
+    paddingBottom: 8,
+    paddingHorizontal: 26,
+  },
+  sideContainer: {
+    alignItems: "flex-start",
+  },
+  middleContainer: {
+    alignItems: "center",
+  },
+  rightContainer: {
+    alignItems: "flex-end",
+    justifyContent: "center",
+  },
+});
