@@ -39,12 +39,12 @@ const ACCOUNT_MENU_ITEMS = [
   {
     title: "Terms and Conditions",
     icon: IMAGES.icons.lightTAndC,
-    route: ROUTES.ACCOUNT_TERMS_AND_CONDITIONS,
+    route: ROUTES.TERMS_AND_CONDITIONS,
   },
   {
     title: "Support",
     icon: IMAGES.icons.lightSupport,
-    route: ROUTES.ACCOUNT_SUPPORT,
+    route: ROUTES.SUPPORT,
   },
   {
     title: "Settings",
@@ -81,7 +81,6 @@ export default function Account() {
     >
       <View
         style={{
-          paddingTop: 24,
           justifyContent: "center",
           alignItems: "center",
         }}
@@ -92,6 +91,7 @@ export default function Account() {
               key={item.title}
               title={item.title}
               icon={item.icon}
+              iconSize={20}
               onPress={() => router.push(item.route)}
             />
           );

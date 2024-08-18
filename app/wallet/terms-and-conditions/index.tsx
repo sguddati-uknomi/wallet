@@ -1,5 +1,5 @@
 import React from "react";
-import { Text, Image, View, TouchableOpacity } from "react-native";
+import { Text, View } from "react-native";
 import { useRouter } from "expo-router";
 import { Header } from "@/components/header/Header";
 import { IMAGES } from "@/assets/Images"; // Ensure this import path is correct
@@ -11,61 +11,10 @@ import CommonButtonWithLinks from "@/components/common/CommonButtonWithLinks";
 import WalletCard from "@/components/common/WalletCard";
 import CompanyCard from "@/components/common/CompanyCard";
 import { ROUTES } from "@/constants/Routes";
+import { HeaderLeftIcon } from "@/components/header/HeaderLeftIcon";
+import { ListItem, OrderedList } from "@/components/common/OrderedList";
 
-const CARD_MOCK_DATA = [
-  {
-    id: 1,
-    brandTitle: "Eegee's",
-    cardHolderName: "Jane Doe",
-    cardExpirationDate: "16 January 2023",
-    cardNumber: "J12345678910",
-    backgroundColor: COLORS.semantic.blue, // Example color
-    brandLogo: IMAGES.demos.eegees, // Placeholder image URL
-    show: true, // Adjust as needed
-  },
-  {
-    id: 2,
-    brandTitle: "Lexi's Drink Bar",
-    cardHolderName: "Jane Doe",
-    cardExpirationDate: "16 January 2023",
-    cardNumber: "J12345678910",
-    backgroundColor: COLORS.semantic.red, // Example color
-    brandLogo: IMAGES.demos.lexis, // Placeholder image URL
-    show: false, // Adjust as needed
-  },
-];
-
-const MOCK_COMPANY_DATA = [
-  {
-    id: 1,
-    brandName: "Pizza Hut",
-    address: "216 Tokai Rd, Dreyersdal, Cape Town, 7945",
-    rating: 3,
-    reviewCount: 1250,
-    distance: 15,
-    logo: IMAGES.demos.pizzaHut, // Replace with the actual image reference
-  },
-  {
-    id: 2,
-    brandName: "Dunkin' Donuts",
-    address: "123 Main St, Springfield, USA",
-    rating: 4,
-    reviewCount: 980,
-    distance: 10,
-    logo: IMAGES.demos.dunkinDonuts, // Replace with the actual image reference
-  },
-  {
-    id: 3,
-    brandName: "Taco Bell",
-    address: "456 Elm St, Gotham, USA",
-    rating: 5,
-    reviewCount: 1500,
-    distance: 5,
-    logo: IMAGES.demos.tacoBell, // Replace with the actual image reference
-  },
-];
-
-export default function HomeScreen() {
+export default function TermsAndConditions() {
   const router = useRouter();
 
   return (
@@ -78,165 +27,48 @@ export default function HomeScreen() {
       }}
       header={
         <Header
-          leftComponent={
-            <Text
-              style={{
-                fontSize: SIZES.SIZE_34,
-                fontWeight: WEIGHTS.BOLD,
-              }}
-            >
-              Wallet
-            </Text>
-          }
-          rightComponent={
-            <TouchableOpacity onPress={() => router.push(ROUTES.ACCOUNT)}>
-              <Image
-                style={{
-                  alignSelf: "flex-end",
-                  justifyContent: "center",
-                  height: 16,
-                  width: 16,
-                  resizeMode: "contain",
-                }}
-                source={IMAGES.icons.darkProfile}
-              />
-            </TouchableOpacity>
-          }
+          leftComponent={<HeaderLeftIcon onPress={() => router.dismiss()} />}
         />
       }
       scrollable
     >
-      <View
+      <Text
         style={{
-          gap: 24,
-          paddingTop: 24,
-          justifyContent: "center",
-          alignItems: "center",
-        }}
-      >
-        {CARD_MOCK_DATA.map((card, idx) => {
-          return (
-            <View
-              key={idx}
-              style={{
-                marginBottom: idx === 0 ? -148 : 0,
-                width: 340,
-                height: 172,
-              }}
-            >
-              <WalletCard
-                brandTitle={card.brandTitle}
-                cardHolderName={card.cardHolderName}
-                cardExpirationDate={card.cardExpirationDate}
-                cardNumber={card.cardNumber}
-                backgroundColor={card.backgroundColor}
-                brandLogo={card.brandLogo}
-                showButtonIcon={idx === 0}
-              />
-            </View>
-          );
-        })}
-        <View
-          style={{
-            gap: SIZES.SIZE_12,
-            width: "100%",
-          }}
-        >
-          <CommonLink
-            text="See All"
-            onPress={() => {
-              router.push(ROUTES.WALLET_CARDS);
-            }}
-          />
-          <View
-            style={{
-              borderBottomWidth: 2,
-              borderBottomColor: COLORS.gray.lightGray,
-            }}
-          />
-        </View>
-      </View>
-      <View
-        style={{
-          marginTop: 28,
-          display: "flex",
-          flexDirection: "row",
-          justifyContent: "space-between",
-        }}
-      >
-        <Text
-          style={{
-            fontSize: SIZES.SIZE_17,
-            fontWeight: WEIGHTS.REGULAR,
-            color: COLORS.loyalty.silver,
-          }}
-        >
-          Explore Cards Nearby
-        </Text>
-        <Image
-          style={{
-            alignSelf: "flex-end",
-            justifyContent: "center",
-            height: 20,
-            width: 20,
-            resizeMode: "contain",
-          }}
-          source={IMAGES.icons.lightInfo}
-        />
-      </View>
-      <View
-        style={{
-          marginTop: 24,
-          gap: 16,
-        }}
-      >
-        {MOCK_COMPANY_DATA.map((company, idx) => {
-          return (
-            <CompanyCard
-              key={idx}
-              id={`${company.id}`}
-              title={company.brandName}
-              address={company.address}
-              rating={company.rating}
-              distance={company.distance}
-              reviews={company.reviewCount}
-              logo={company.logo}
-              onCardAdd={() => {
-                alert("Card has been added");
-              }}
-            />
-          );
-        })}
-      </View>
-      <View
-        style={{
-          marginTop: 36,
+          fontSize: SIZES.SIZE_17,
+          color: COLORS.loyalty.silver,
           width: "100%",
-          alignItems: "center",
         }}
       >
-        <Text
-          style={{
-            fontWeight: WEIGHTS.REGULAR,
-            fontSize: SIZES.SIZE_17,
-            color: COLORS.gray.faintGrey,
-            textAlign: "center",
-            width: 300,
-          }}
-        >
-          Activate your profile to allow easy ordering, personalized choices and
-          cash-back rewards
+        Terms and Conditions
+      </Text>
+      <View style={{ marginTop: 16, flex: 1, gap: 16 }}>
+        <OrderedList>
+          {[
+            "Your personal information, including your name, surname, email address, cellphone number, location, credit card details, purchase history, vehicle details and date of birth, may be collected and stored by our mobile app for the purpose of providing you with a personalized experience and improving our services.",
+            "We will not share your personal information with any third parties without your consent, except as required by law or as necessary to provide our services to you.",
+            "We take the security of your personal information seriously and have implemented measures to protect your data from unauthorized access, disclosure, or use. However, no system can guarantee absolute security, and we cannot be held responsible for any unauthorized access to your personal information.",
+            "We take the security of your personal information seriously and have implemented measures to protect your data from unauthorized access, disclosure, or use. However, no system can guarantee absolute security, and we cannot be held responsible for any unauthorized access to your personal information.",
+            "We may update these terms and conditions from time to time, and any changes will be posted on our app. Your continued use of our app after any changes have been made indicates your acceptance of the updated terms and conditions.",
+          ].map((text, index) => (
+            <ListItem>
+              <Text
+                style={{ color: COLORS.gray.black, flex: 1, flexWrap: "wrap" }}
+              >
+                {text}
+              </Text>
+            </ListItem>
+          ))}
+        </OrderedList>
+        <Text>
+          Please read these terms and conditions carefully before using our
+          mobile app.
+        </Text>
+        <Text>
+          If you have any questions or concerns about our privacy practices,
+          please contact us via email at info@uknomi.com or contact our customer
+          care line on 000 000 0000.
         </Text>
       </View>
-      <CommonButtonWithLinks
-        buttonColor={COLORS.gray.lightGray}
-        textColor={COLORS.gray.faintGrey}
-        style={{
-          marginTop: 24,
-        }}
-        text="Activate Profile"
-        onPress={() => router.push(ROUTES.AUTH_SIGN_IN)}
-      />
     </CommonAppLayout>
   );
 }

@@ -109,7 +109,6 @@ export default function HomeScreen() {
       <View
         style={{
           gap: 24,
-          paddingTop: 24,
           justifyContent: "center",
           alignItems: "center",
         }}

@@ -19,9 +19,8 @@ export function HeaderLeftIcon({ text, onPress }: HeaderLeftIconProps) {
 
 const styles = {
   container: {
-    position: "absolute",
-    top: 8,
-    left: 0,
+    // position: "absolute",
+    // left: 0,
     flexDirection: "row",
     alignItems: "center",
     minWidth: 24,

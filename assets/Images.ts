@@ -51,6 +51,8 @@ export const IMAGES = {
     lightPlus: require("./images/icons/light_plus.png"),
     darkClose: require("./images/icons/dark_close.png"),
     rightArrow: require("./images/icons/right_arrow.png"),
+    support: require("./images/icons/support.png"),
+    subtract: require("./images/icons/subtract.png"),
   },
   demos: {
     lexis: require("./images/demo/lexis.png"),

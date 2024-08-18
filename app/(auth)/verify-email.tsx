@@ -30,7 +30,6 @@ export default function VerifyEmail() {
         style={{
           flex: 1,
           gap: 48,
-          paddingVertical: 64,
           alignItems: "center",
         }}
       >

@@ -84,18 +84,6 @@ export default function DeleteAccount() {
       header={
         <Header
           leftComponent={<HeaderLeftIcon onPress={() => router.dismiss()} />}
-          rightComponent={
-            <Image
-              style={{
-                alignSelf: "flex-end",
-                justifyContent: "center",
-                height: 16,
-                width: 16,
-                resizeMode: "contain",
-              }}
-              source={IMAGES.icons.darkProfile}
-            />
-          }
         />
       }
     >

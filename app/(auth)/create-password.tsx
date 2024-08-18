@@ -37,7 +37,6 @@ export default function CreatePassword() {
         style={{
           flex: 1,
           gap: 48,
-          paddingVertical: 48,
           alignItems: "center",
         }}
       >

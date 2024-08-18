@@ -27,7 +27,7 @@ export default function EnableLocation() {
       <View
         style={{
           flex: 1,
-          justifyContent: "space-evenly",
+          gap: 48,
           alignItems: "center",
         }}
       >

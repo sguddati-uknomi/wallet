@@ -12,7 +12,7 @@ import {
 } from "react-native";
 
 interface IconTextProps {
-  icon: ImageSourcePropType;
+  icon?: ImageSourcePropType;
   text: string;
   iconSize?: number;
   textStyle?: TextStyle;
@@ -28,11 +28,13 @@ const IconText: React.FC<IconTextProps> = ({
 }) => {
   return (
     <View style={[styles.container, containerStyle]}>
-      <Image
-        style={{ width: iconSize, height: iconSize }}
-        source={icon}
-        resizeMode="contain"
-      />
+      {icon && (
+        <Image
+          style={{ width: iconSize, height: iconSize }}
+          source={icon}
+          resizeMode="contain"
+        />
+      )}
       <Text style={[styles.text, textStyle]}>{text}</Text>
     </View>
   );

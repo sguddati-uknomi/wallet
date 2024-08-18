@@ -36,9 +36,17 @@ const CommonAppLayout = ({
         <ScrollView
           showsVerticalScrollIndicator={false}
           showsHorizontalScrollIndicator={false}
-          style={[styles.mainContent, mainContentStyle]}
+          style={{ flex: 1, backgroundColor }}
         >
-          <View style={{ paddingBottom: 24 }}>{children}</View>
+          <View
+            style={[
+              { paddingBottom: 24 },
+              styles.mainContent,
+              mainContentStyle,
+            ]}
+          >
+            {children}
+          </View>
         </ScrollView>
       )}
     </SafeAreaView>
@@ -52,6 +60,7 @@ const styles = StyleSheet.create({
   mainContent: {
     flex: 1,
     paddingHorizontal: 24,
+    paddingVertical: 24,
   },
 });
 

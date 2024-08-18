@@ -69,7 +69,6 @@ export default function AllCards() {
       <View
         style={{
           gap: 24,
-          paddingTop: 24,
           justifyContent: "center",
           alignItems: "center",
         }}

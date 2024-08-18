@@ -15,11 +15,13 @@ export default function NavigationMenuItem({
   icon,
   onPress,
   style,
+  iconSize = 16,
 }: {
   title: string;
-  icon: ImageSourcePropType;
+  icon?: ImageSourcePropType;
   onPress: () => void;
   style?: StyleProp<any>;
+  iconSize?: number;
 }) {
   return (
     <View style={{ width: "100%" }}>
@@ -32,6 +34,7 @@ export default function NavigationMenuItem({
             justifyContent: "space-between",
             alignItems: "center",
             padding: 16,
+            paddingRight: 8,
           },
           style,
         ]}
@@ -40,7 +43,7 @@ export default function NavigationMenuItem({
         <IconText
           icon={icon}
           text={title}
-          iconSize={16}
+          iconSize={iconSize}
           textStyle={{ color: COLORS.gray.black, fontSize: SIZES.SIZE_17 }}
         />
         <Image

@@ -33,7 +33,6 @@ export default function SignIn() {
         style={{
           flex: 1,
           gap: 48,
-          paddingVertical: 64,
           alignItems: "center",
         }}
       >
