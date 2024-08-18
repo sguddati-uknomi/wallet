@@ -6,6 +6,7 @@ import {
   StyleProp,
   TouchableOpacity,
   ImageSourcePropType,
+  ViewStyle,
 } from "react-native";
 import { IMAGES } from "@/assets/Images"; // Ensure this import path is correct
 import { COLORS } from "@/constants/Colors";
@@ -25,6 +26,8 @@ const CompanyCard = ({
   reviews,
   onButtonIconPress,
   onCardAdd,
+  cardStyle,
+  showIconButton = true,
 }: {
   id?: string;
   title?: string;
@@ -35,10 +38,12 @@ const CompanyCard = ({
   reviews?: number;
   onButtonIconPress?: () => void;
   onCardAdd?: (id: string) => void;
+  cardStyle?: ViewStyle;
+  showIconButton?: boolean;
 }) => {
   const [modalVisible, setModalVisible] = React.useState(false);
   return (
-    <View style={styles.cardContainer}>
+    <View style={[styles.cardContainer, cardStyle]}>
       {/* Logo on the left */}
       <View style={styles.logoContainer}>
         <Image
@@ -71,25 +76,30 @@ const CompanyCard = ({
       </View>
 
       {/* Right Section */}
-      <View style={styles.rightSection}>
-        {/* Button in the top right */}
-        <TouchableOpacity
-          style={styles.button}
-          onPress={onButtonIconPress ?? (() => setModalVisible(true))}
-        >
-          <Image
-            source={IMAGES.icons.lightPlus}
-            style={{
-              width: 16,
-              height: 16,
-            }}
-            resizeMode="contain"
-          />
-        </TouchableOpacity>
+      {(showIconButton || distance) && (
+        <View style={styles.rightSection}>
+          {/* Button in the top right */}
+          {!showIconButton && <View />}
+          {showIconButton && (
+            <TouchableOpacity
+              style={styles.button}
+              onPress={onButtonIconPress ?? (() => setModalVisible(true))}
+            >
+              <Image
+                source={IMAGES.icons.lightPlus}
+                style={{
+                  width: 16,
+                  height: 16,
+                }}
+                resizeMode="contain"
+              />
+            </TouchableOpacity>
+          )}
 
-        {/* Distance in the bottom right */}
-        <Text style={styles.distance}>{distance}km Away</Text>
-      </View>
+          {/* Distance in the bottom right */}
+          {distance && <Text style={styles.distance}>{distance}km Away</Text>}
+        </View>
+      )}
       <CommonModal
         onClose={() => setModalVisible(false)}
         modalVisible={modalVisible}
@@ -142,6 +152,7 @@ const styles = {
     flex: 1,
     borderWidth: 1,
     borderColor: COLORS.gray.lightGray,
+    paddingVertical: 8,
   },
   logoContainer: {
     width: 72,
@@ -205,7 +216,6 @@ const styles = {
     alignItems: "center",
     marginBottom: 8,
     marginRight: 8,
-    marginTop: 6,
   },
   buttonText: {
     fontSize: 20,
@@ -218,9 +228,12 @@ const styles = {
     paddingHorizontal: 12,
     paddingVertical: 8,
     borderTopLeftRadius: 10,
+    borderBottomRightRadius: 10,
     width: 62,
     minHeight: 40,
     textAlign: "center",
+    marginBottom: -8,
+    alignItems: "flex-end",
   },
 } as StyleProp<any>;
 

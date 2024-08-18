@@ -43,7 +43,7 @@ const styles = StyleSheet.create({
     display: "flex",
     flexDirection: "row",
     alignItems: "center",
-    gap: 12,
+    gap: 24,
   },
   text: {
     fontSize: SIZES.SIZE_14, // Default font size

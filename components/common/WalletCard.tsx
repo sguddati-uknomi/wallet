@@ -96,7 +96,7 @@ const styles = {
     right: 24,
     width: 42,
     height: 42,
-    borderRadius: 21,
+    borderRadius: 24,
     backgroundColor: "white",
   },
   roundImageWrapper: {

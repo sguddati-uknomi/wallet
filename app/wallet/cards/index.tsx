@@ -10,6 +10,7 @@ import CommonButtonWithLinks from "@/components/common/CommonButtonWithLinks";
 import WalletCard from "@/components/common/WalletCard";
 import { ROUTES } from "@/constants/Routes";
 import CommonLink from "@/components/common/CommonLink";
+import { HeaderLeftIcon } from "@/components/header/HeaderLeftIcon";
 const CARD_MOCK_DATA = [
   {
     id: 1,
@@ -47,14 +48,7 @@ export default function AllCards() {
       header={
         <Header
           leftComponent={
-            <Text
-              style={{
-                fontSize: SIZES.SIZE_34,
-                fontWeight: WEIGHTS.BOLD,
-              }}
-            >
-              Wallet
-            </Text>
+            <HeaderLeftIcon text="Wallet" onPress={() => router.dismiss()} />
           }
           rightComponent={
             <Image
