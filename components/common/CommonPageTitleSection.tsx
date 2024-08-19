@@ -4,7 +4,7 @@ import { SIZES, WEIGHTS } from "@/constants/Font"; // Adjust import path as need
 
 type PageTitleSectionProps = {
   title: string;
-  description: string;
+  description?: string;
   titleStyle?: StyleProp<TextStyle>; // Optional style for the title
   descriptionStyle?: StyleProp<TextStyle>; // Optional style for the description
   containerStyle?: StyleProp<ViewStyle>; // Optional style for the container
@@ -20,7 +20,11 @@ const PageTitleSection = ({
   return (
     <View style={[styles.container, containerStyle]}>
       <Text style={[styles.title, titleStyle]}>{title}</Text>
-      <Text style={[styles.description, descriptionStyle]}>{description}</Text>
+      {description && (
+        <Text style={[styles.description, descriptionStyle]}>
+          {description}
+        </Text>
+      )}
     </View>
   );
 };

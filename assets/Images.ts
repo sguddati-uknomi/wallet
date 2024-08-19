@@ -53,6 +53,7 @@ export const IMAGES = {
     rightArrow: require("./images/icons/right_arrow.png"),
     support: require("./images/icons/support.png"),
     subtract: require("./images/icons/subtract.png"),
+    lightCamera: require("./images/icons/light_camera.png"),
   },
   demos: {
     lexis: require("./images/demo/lexis.png"),

@@ -113,12 +113,21 @@ export default function HomeScreen() {
           alignItems: "center",
         }}
       >
+        <View
+          key={"default"}
+          style={{
+            width: 340,
+            height: 172,
+          }}
+        >
+          <WalletCard backgroundColor={COLORS.gray.lightGray} />
+        </View>
         {CARD_MOCK_DATA.map((card, idx) => {
           return (
             <View
               key={idx}
               style={{
-                marginBottom: idx === 0 ? -148 : 0,
+                marginTop: -148,
                 width: 340,
                 height: 172,
               }}
@@ -130,7 +139,7 @@ export default function HomeScreen() {
                 cardNumber={card.cardNumber}
                 backgroundColor={card.backgroundColor}
                 brandLogo={card.brandLogo}
-                showButtonIcon={idx === 0}
+                showButtonIcon={false}
               />
             </View>
           );
@@ -142,7 +151,7 @@ export default function HomeScreen() {
           }}
         >
           <CommonLink
-            text="See All"
+            text={CARD_MOCK_DATA.length === 0 ? "You have no cards" : "See All"}
             onPress={() => {
               router.push(ROUTES.WALLET_CARDS);
             }}
