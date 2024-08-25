@@ -12,6 +12,7 @@ export const IMAGES = {
   favoriteMenu: require("./images/favorite_menu.png"),
   uKnomiPayLogo: require("./images/uKnomi_pay_logo.png"),
   location: require("./images/location.png"),
+  picksForYou: require("./images/picks_for_you.png"),
   payments: {
     applePay: require("./images/payments/apple_pay.png"),
     cash: require("./images/payments/cash.png"),
@@ -54,6 +55,12 @@ export const IMAGES = {
     support: require("./images/icons/support.png"),
     subtract: require("./images/icons/subtract.png"),
     lightCamera: require("./images/icons/light_camera.png"),
+    lightEmptyCar: require("./images/light_empty_car.png"),
+    go: require("./images/icons/go.png"),
+    coupon: require("./images/icons/coupon.png"),
+    orderFeedback: require("./images/icons/order_feedback.png"),
+    orderLocation: require("./images/icons/order_location.png"),
+    orderPhone: require("./images/icons/order_phone.png"),
   },
   demos: {
     lexis: require("./images/demo/lexis.png"),
@@ -61,5 +68,8 @@ export const IMAGES = {
     pizzaHut: require("./images/demo/pizza_hut.png"),
     dunkinDonuts: require("./images/demo/dunkin_donuts.png"),
     tacoBell: require("./images/demo/taco_bell.png"),
+  },
+  rewardLevel: {
+    bronze: require("./images/reward-level/bronze.png"),
   },
 };

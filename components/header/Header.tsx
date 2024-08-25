@@ -15,15 +15,16 @@ export function Header({
   rightComponent,
   headerStyles,
 }: HeaderProps) {
-  const leftRightFlex = middleComponent ? 1 : 2;
+  const leftFlex = middleComponent ? 1 : 3;
   const middleFlex = middleComponent ? 1 : 0;
+  const rightFlex = middleComponent ? 1 : rightComponent ? 2 : 0;
 
   return (
     <View style={[styles.container, headerStyles]}>
       <View
         style={{
           ...styles.sideContainer,
-          flex: leftRightFlex,
+          flex: leftFlex,
         }}
       >
         {leftComponent}
@@ -41,7 +42,7 @@ export function Header({
       <View
         style={{
           ...styles.rightContainer,
-          flex: leftRightFlex,
+          flex: rightFlex,
         }}
       >
         {rightComponent}

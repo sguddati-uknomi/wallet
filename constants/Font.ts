@@ -12,6 +12,6 @@ export const SIZES = {
 
 export const WEIGHTS = {
   BOLD: 700,
-  SEMI_BOLD: 590,
+  SEMI_BOLD: 500,
   REGULAR: 400,
 };

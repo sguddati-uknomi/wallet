@@ -10,7 +10,7 @@ import CommonLink from "@/components/common/CommonLink";
 import CommonButtonWithLinks from "@/components/common/CommonButtonWithLinks";
 import WalletCard from "@/components/common/WalletCard";
 import CompanyCard from "@/components/common/CompanyCard";
-import { ROUTES } from "@/constants/Routes";
+import { PARAM, ROUTES } from "@/constants/Routes";
 
 const CARD_MOCK_DATA = [
   {
@@ -120,7 +120,10 @@ export default function HomeScreen() {
             height: 172,
           }}
         >
-          <WalletCard backgroundColor={COLORS.gray.lightGray} />
+          <WalletCard
+            backgroundColor={COLORS.gray.lightGray}
+            onButtonIconPress={() => router.push(ROUTES.WALLET_SEARCH_CARD)}
+          />
         </View>
         {CARD_MOCK_DATA.map((card, idx) => {
           return (
@@ -140,6 +143,11 @@ export default function HomeScreen() {
                 backgroundColor={card.backgroundColor}
                 brandLogo={card.brandLogo}
                 showButtonIcon={false}
+                onCardPress={() =>
+                  router.push(
+                    ROUTES.WALLET_CARD.replace(PARAM.CARD_ID, `${card.id}`)
+                  )
+                }
               />
             </View>
           );
@@ -196,6 +204,7 @@ export default function HomeScreen() {
         style={{
           marginTop: 24,
           gap: 16,
+          flex: 1,
         }}
       >
         {MOCK_COMPANY_DATA.map((company, idx) => {

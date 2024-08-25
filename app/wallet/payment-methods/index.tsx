@@ -11,7 +11,7 @@ import { HeaderLeftIcon } from "@/components/header/HeaderLeftIcon";
 import CustomSwitch from "@/components/common/Switch";
 import CustomInput from "@/components/common/CommonInput";
 import PaymentMethod from "@/components/common/PaymentMethod"; // Import the new component
-import { ROUTES } from "@/constants/Routes";
+import { PARAM, ROUTES } from "@/constants/Routes";
 
 export default function PaymentMethods() {
   const router = useRouter();
@@ -121,7 +121,14 @@ export default function PaymentMethods() {
         </View>
         <View style={{ gap: 8 }}>
           <PaymentMethod
-            onPress={() => {}}
+            onPress={() => {
+              router.push(
+                ROUTES.ACCOUNT_PAYMENT_METHODS_EDIT_CARD.replace(
+                  PARAM.CARD_ID,
+                  "4124"
+                )
+              );
+            }}
             imageSource={IMAGES.payments.visa}
             title="VISA Card"
             subtitle="1234 5678 9101 1213"

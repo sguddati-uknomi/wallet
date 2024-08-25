@@ -28,6 +28,7 @@ const CompanyCard = ({
   onCardAdd,
   cardStyle,
   showIconButton = true,
+  children,
 }: {
   id?: string;
   title?: string;
@@ -40,101 +41,114 @@ const CompanyCard = ({
   onCardAdd?: (id: string) => void;
   cardStyle?: ViewStyle;
   showIconButton?: boolean;
+  children?: React.ReactNode;
 }) => {
   const [modalVisible, setModalVisible] = React.useState(false);
   return (
-    <View style={[styles.cardContainer, cardStyle]}>
-      {/* Logo on the left */}
-      <View style={styles.logoContainer}>
-        <Image
-          source={logo} // Replace with the actual logo URI
-          style={styles.logo}
-          resizeMode="contain"
-        />
-      </View>
-
-      {/* Middle Information Section */}
-      <View style={styles.infoContainer}>
-        <Text style={styles.name}>{title}</Text>
-        <Text style={styles.address}>{address}</Text>
-        <View style={styles.ratingContainer}>
-          {/* Star Ratings */}
-          {Array.from({ length: 5 }).map((_, index) => (
-            <Image
-              key={index}
-              source={
-                index < (rating ?? 0)
-                  ? IMAGES.icons.filledStar
-                  : IMAGES.icons.unfilledStar
-              }
-              style={styles.starIcon}
-              resizeMode="contain"
-            />
-          ))}
-          <Text style={styles.reviewCount}>({reviews} reviews)</Text>
+    <>
+      <View style={[styles.cardContainer, cardStyle]}>
+        {/* Logo on the left */}
+        <View style={styles.logoContainer}>
+          <Image
+            source={logo} // Replace with the actual logo URI
+            style={styles.logo}
+            resizeMode="contain"
+          />
         </View>
-      </View>
 
-      {/* Right Section */}
-      {(showIconButton || distance) && (
-        <View style={styles.rightSection}>
-          {/* Button in the top right */}
-          {!showIconButton && <View />}
-          {showIconButton && (
-            <TouchableOpacity
-              style={styles.button}
-              onPress={onButtonIconPress ?? (() => setModalVisible(true))}
-            >
+        {/* Middle Information Section */}
+        <View style={styles.infoContainer}>
+          <Text style={styles.name}>{title}</Text>
+          <Text style={styles.address}>{address}</Text>
+          <View style={styles.ratingContainer}>
+            {/* Star Ratings */}
+            {Array.from({ length: 5 }).map((_, index) => (
               <Image
-                source={IMAGES.icons.lightPlus}
-                style={{
-                  width: 16,
-                  height: 16,
-                }}
+                key={index}
+                source={
+                  index < (rating ?? 0)
+                    ? IMAGES.icons.filledStar
+                    : IMAGES.icons.unfilledStar
+                }
+                style={styles.starIcon}
                 resizeMode="contain"
               />
-            </TouchableOpacity>
-          )}
-
-          {/* Distance in the bottom right */}
-          {distance && <Text style={styles.distance}>{distance}km Away</Text>}
+            ))}
+            <Text style={styles.reviewCount}>({reviews} reviews)</Text>
+          </View>
         </View>
-      )}
-      <CommonModal
-        onClose={() => setModalVisible(false)}
-        modalVisible={modalVisible}
-      >
-        <CommonPageTitleSection
-          titleStyle={{
-            fontSize: SIZES.SIZE_17,
-          }}
-          descriptionStyle={{
-            fontSize: SIZES.SIZE_12,
-          }}
-          title={title ?? ""}
-          description="Rewards Card"
-        />
-        <CommonButtonWithLinks
-          style={{
-            marginTop: 24,
-          }}
-          text="Add Card"
-          onPress={() => {
-            setModalVisible(false);
-            if (onCardAdd) {
-              onCardAdd(id ?? "");
-            }
-          }}
+
+        {/* Right Section */}
+        {(showIconButton || distance) && (
+          <View style={styles.rightSection}>
+            {/* Button in the top right */}
+            {!showIconButton && (
+              <View
+                style={{
+                  width: 30,
+                  height: 30,
+                  marginBottom: 8,
+                  marginRight: 8,
+                }}
+              />
+            )}
+            {showIconButton && (
+              <TouchableOpacity
+                style={styles.button}
+                onPress={onButtonIconPress ?? (() => setModalVisible(true))}
+              >
+                <Image
+                  source={IMAGES.icons.lightPlus}
+                  style={{
+                    width: 16,
+                    height: 16,
+                  }}
+                  resizeMode="contain"
+                />
+              </TouchableOpacity>
+            )}
+
+            {/* Distance in the bottom right */}
+            {distance && <Text style={styles.distance}>{distance}km Away</Text>}
+          </View>
+        )}
+        <CommonModal
+          onClose={() => setModalVisible(false)}
+          modalVisible={modalVisible}
         >
-          <CommonLink
-            text="Not now, thanks"
+          <CommonPageTitleSection
+            titleStyle={{
+              fontSize: SIZES.SIZE_17,
+            }}
+            descriptionStyle={{
+              fontSize: SIZES.SIZE_12,
+            }}
+            title={title ?? ""}
+            description="Rewards Card"
+          />
+          <CommonButtonWithLinks
+            style={{
+              marginTop: 24,
+            }}
+            text="Add Card"
             onPress={() => {
               setModalVisible(false);
+              if (onCardAdd) {
+                onCardAdd(id ?? "");
+              }
             }}
-          />
-        </CommonButtonWithLinks>
-      </CommonModal>
-    </View>
+          >
+            <CommonLink
+              text="Not now, thanks"
+              onPress={() => {
+                setModalVisible(false);
+              }}
+            />
+          </CommonButtonWithLinks>
+        </CommonModal>
+      </View>
+      {children && <View>{children}</View>}
+    </>
   );
 };
 
@@ -149,7 +163,6 @@ const styles = {
     shadowRadius: 4,
     elevation: 3,
     alignItems: "center",
-    flex: 1,
     borderWidth: 1,
     borderColor: COLORS.gray.lightGray,
     paddingVertical: 8,
@@ -172,9 +185,9 @@ const styles = {
     height: 64,
   },
   infoContainer: {
-    flex: 1,
     justifyContent: "center",
     marginVertical: 4,
+    flex: 4,
   },
   name: {
     fontSize: 17,
@@ -203,8 +216,8 @@ const styles = {
     marginLeft: 4,
   },
   rightSection: {
-    alignItems: "flex-end",
-    justifyContent: "space-between",
+    position: "relative",
+    flex: 1,
     height: "100%",
   },
   button: {
@@ -214,8 +227,9 @@ const styles = {
     backgroundColor: "#00CC66",
     justifyContent: "center",
     alignItems: "center",
-    marginBottom: 8,
-    marginRight: 8,
+    position: "absolute",
+    top: -2,
+    right: 8,
   },
   buttonText: {
     fontSize: 20,
@@ -232,8 +246,9 @@ const styles = {
     width: 62,
     minHeight: 40,
     textAlign: "center",
-    marginBottom: -8,
-    alignItems: "flex-end",
+    position: "absolute",
+    bottom: -8,
+    right: 0,
   },
 } as StyleProp<any>;
 

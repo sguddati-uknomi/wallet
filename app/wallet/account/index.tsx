@@ -1,5 +1,5 @@
 import React from "react";
-import { Image, View } from "react-native";
+import { Image, View, Text, TouchableOpacity } from "react-native";
 import { useRouter } from "expo-router";
 import { Header } from "@/components/header/Header";
 import { IMAGES } from "@/assets/Images"; // Ensure this import path is correct
@@ -19,7 +19,7 @@ const ACCOUNT_MENU_ITEMS = [
   {
     title: "Registered Cars",
     icon: IMAGES.icons.lightCar,
-    route: ROUTES.ACCOUNT_REGISTERED_CARS,
+    route: ROUTES.REGISTERED_CARS,
   },
   {
     title: "Payment Methods",
@@ -83,8 +83,50 @@ export default function Account() {
         style={{
           justifyContent: "center",
           alignItems: "center",
+          position: "relative",
         }}
       >
+        <View style={{ width: "100%", height: 100, position: "relative" }}>
+          <TouchableOpacity
+            style={{
+              position: "absolute",
+              top: 0,
+              right: 0,
+              zIndex: 2,
+            }}
+            onPress={() => router.push(ROUTES.WALLET_NOTIFICATIONS)}
+          >
+            <View style={{ position: "relative" }}>
+              <View
+                style={{
+                  minWidth: 16,
+                  minHeight: 16,
+                  borderRadius: 16,
+                  backgroundColor: COLORS.primary.uKnomiLogoGreen,
+                  position: "absolute",
+                  zIndex: 2,
+                  right: 0,
+                  top: -4,
+                  justifyContent: "center",
+                }}
+              >
+                <Text
+                  style={{
+                    textAlign: "center",
+                    fontSize: 8,
+                    color: COLORS.gray.white,
+                  }}
+                >
+                  37
+                </Text>
+              </View>
+              <Image
+                source={IMAGES.icons.lightBell}
+                style={{ width: 24, height: 24 }}
+              />
+            </View>
+          </TouchableOpacity>
+        </View>
         {ACCOUNT_MENU_ITEMS.map((item) => {
           return (
             <NavigationMenuItem
