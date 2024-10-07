@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Image, View, StyleProp } from "react-native";
 import { useRouter } from "expo-router";
 import { Header } from "@/components/header/Header";
@@ -12,9 +12,20 @@ import { HeaderLeftIcon } from "@/components/header/HeaderLeftIcon";
 import { ROUTES } from "@/constants/Routes";
 import PageTitleSection from "@/components/common/CommonPageTitleSection";
 import ProgressIndicator from "@/components/common/ProgressIndicator";
+import useBLE from "@/hooks/useBLE";
 
 export default function EnableBluetooth() {
   const router = useRouter();
+  const { requestPermissions } = useBLE();
+
+  async function requestBluetoothPermission() {
+    const result = await requestPermissions();
+
+    if (result) {
+      router.push(ROUTES.AUTH_ENABLE_NOTIFICATIONS);
+    }
+  }
+
   return (
     <CommonAppLayout
       header={
@@ -43,7 +54,7 @@ export default function EnableBluetooth() {
         </View>
         <CommonButtonWithLinks
           text="Enable"
-          onPress={() => router.push(ROUTES.AUTH_ENABLE_NOTIFICATIONS)}
+          onPress={() => requestBluetoothPermission()}
         >
           <CommonLink
             text="Not now, thanks"

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useCallback } from "react";
 import { Image, View, StyleProp } from "react-native";
 import { useRouter } from "expo-router";
 import { Header } from "@/components/header/Header";
@@ -12,9 +12,24 @@ import { HeaderLeftIcon } from "@/components/header/HeaderLeftIcon";
 import { ROUTES } from "@/constants/Routes";
 import PageTitleSection from "@/components/common/CommonPageTitleSection";
 import ProgressIndicator from "@/components/common/ProgressIndicator";
+import * as Location from "expo-location";
 
 export default function EnableLocation() {
   const router = useRouter();
+  const [, requestBackgroundPermission] = Location.useBackgroundPermissions();
+  const [, requestForegroundPermission] = Location.useForegroundPermissions();
+
+  async function askForLocationPermission() {
+    const foregroundPermission = await requestForegroundPermission();
+
+    if (foregroundPermission.status === "granted") {
+      const backgroundPermission = await requestBackgroundPermission();
+
+      if (backgroundPermission.status === "granted")
+        router.push(ROUTES.AUTH_ENABLE_BLUETOOTH);
+    }
+  }
+
   return (
     <CommonAppLayout
       header={
@@ -41,10 +56,7 @@ export default function EnableLocation() {
           />
           <ProgressIndicator stepsCompleted={4} totalSteps={6} />
         </View>
-        <CommonButtonWithLinks
-          text="Enable"
-          onPress={() => router.push(ROUTES.AUTH_ENABLE_BLUETOOTH)}
-        >
+        <CommonButtonWithLinks text="Enable" onPress={askForLocationPermission}>
           <CommonLink
             text="Not now, thanks"
             onPress={() => router.push(ROUTES.AUTH_ENABLE_BLUETOOTH)}

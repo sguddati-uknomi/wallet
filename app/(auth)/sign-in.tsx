@@ -13,6 +13,7 @@ import { ROUTES } from "@/constants/Routes";
 import PageTitleSection from "@/components/common/CommonPageTitleSection";
 import CustomInput from "@/components/common/CommonInput";
 import Checkbox from "expo-checkbox";
+import { COLORS } from "@/constants/Colors";
 
 export default function SignIn() {
   const router = useRouter();
@@ -54,12 +55,16 @@ export default function SignIn() {
             onChangeText={setEmail}
             placeholder="Email or mobile number"
             icon={IMAGES.icons.lightProfile}
+            inputBackgroundColor="#E6FCF3"
+            inputTextColor={COLORS.gray.black}
           />
           <CustomInput
             value={password}
             onChangeText={setPassword}
             placeholder="Password"
             isPassword={true}
+            inputBackgroundColor="#E6FCF3"
+            inputTextColor={COLORS.gray.black}
           />
           <View
             style={{

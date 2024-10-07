@@ -15,6 +15,7 @@ export const ROUTES = {
   WALLET_CARD: `/wallet/cards/${PARAM.CARD_ID}`,
   WALLET_CARD_PICKS_FOR_YOU: `/wallet/cards/${PARAM.CARD_ID}/picks-for-you`,
   WALLET_CARD_ORDER_HISTORY: `/wallet/cards/${PARAM.CARD_ID}/order-history`,
+  WALLET_CARD_REWARDS_HISTORY: `/wallet/cards/${PARAM.CARD_ID}/rewards-history`,
   WALLET_CARD_REWARDS_SUMMARY: `/wallet/cards/${PARAM.CARD_ID}/rewards-summary`,
   WALLET_CARD_FAVORITE_MENU_ITEMS: `/wallet/cards/${PARAM.CARD_ID}/favorite-menu-items`,
   WALLET_CARD_ADD_FAVORITE_MENU_ITEMS: `/wallet/cards/${PARAM.CARD_ID}/add-favorite-menu-items`,

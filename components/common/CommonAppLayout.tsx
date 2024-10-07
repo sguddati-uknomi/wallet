@@ -56,6 +56,8 @@ const CommonAppLayout = ({
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    width: "100%",
+    maxWidth: 1280,
   },
   mainContent: {
     flex: 1,

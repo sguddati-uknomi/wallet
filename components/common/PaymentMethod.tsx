@@ -5,7 +5,6 @@ import {
   View,
   Image,
   Text,
-  StyleSheet,
   ImageSourcePropType,
   StyleProp,
 } from "react-native";
@@ -18,14 +17,16 @@ const PaymentMethod = ({
   imageSource,
   title,
   subtitle,
+  style,
 }: {
+  style?: StyleProp<any>;
   onPress?: () => void;
   imageSource?: ImageSourcePropType;
   title?: string;
   subtitle?: string;
 }) => {
   return (
-    <TouchableOpacity style={styles.container} onPress={onPress}>
+    <TouchableOpacity style={[styles.container, style]} onPress={onPress}>
       <View style={styles.row}>
         <Image style={styles.image} source={imageSource} resizeMode="contain" />
         <View style={styles.textContainer}>

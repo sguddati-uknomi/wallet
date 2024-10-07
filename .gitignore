@@ -18,3 +18,7 @@ web-build/
 
 expo-env.d.ts
 # @end expo-cli
+
+# firebase credentials
+uknomi-wallet-firebase-adminsdk-*.json
+*google-services.json

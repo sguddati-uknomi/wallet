@@ -61,6 +61,7 @@ export const IMAGES = {
     orderFeedback: require("./images/icons/order_feedback.png"),
     orderLocation: require("./images/icons/order_location.png"),
     orderPhone: require("./images/icons/order_phone.png"),
+    switch: require("./images/icons/switch.png"),
   },
   demos: {
     lexis: require("./images/demo/lexis.png"),
@@ -68,6 +69,9 @@ export const IMAGES = {
     pizzaHut: require("./images/demo/pizza_hut.png"),
     dunkinDonuts: require("./images/demo/dunkin_donuts.png"),
     tacoBell: require("./images/demo/taco_bell.png"),
+    bofa: require("./images/demo/bofa.png"),
+    lexisCircle: require("./images/demo/lexis-circle.png"),
+    saladngo: require("./images/demo/saladngo.png"),
   },
   rewardLevel: {
     bronze: require("./images/reward-level/bronze.png"),
