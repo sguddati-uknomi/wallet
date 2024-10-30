@@ -2,7 +2,7 @@
   "expo": {
     "name": "uKnomi Wallet",
     "slug": "uKnomiWallet",
-    "version": "1.0.0",
+    "version": "0.0.1",
     "orientation": "portrait",
     "icon": "./assets/images/app_logo.png",
     "scheme": "myapp",
@@ -14,7 +14,7 @@
     },
     "ios": {
       "supportsTablet": true,
-      "bundleIdentifier": "com.fernport.uKnomiWallet"
+      "bundleIdentifier": "com.uKnomi.Wallet"
     },
     "android": {
       "splash": {
